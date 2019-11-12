@@ -34,3 +34,6 @@ usethis::use_tibble() # @return a [tibble][tibble::tibble-package]
 usethis::use_pipe()
 usethis::use_testthat()
 devtools::document()
+
+# setup git
+usethis::use_git()
