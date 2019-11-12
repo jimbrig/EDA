@@ -1,12 +1,18 @@
 Package: owEDA
-Title: What the Package Does (One Line, Title Case)
+Title: Oliver Wyman Exploratory Data Analysis Package
 Version: 0.0.1
 Authors@R: 
-    person(given = "Jimmy",
-           family = "Briggs",
-           role = c("aut", "cre"),
-           email = "jimmy.briggs@oliverwyman.com")
-Description: What the package does (one paragraph).
+    c(person(given = "Jimmy",
+             family = "Briggs",
+             role = c("aut", "cre"),
+             email = "jimmy.briggs@oliverwyman.com"),
+      person(given = "Scott",
+             family = "Sobel",
+             role = "ctb",
+             email = "scott.sobel@oliverwyman.com"),
+      person(given = "Oliver Wyman Actuarial Consulting, Inc.",
+             role = "fnd"))
+Description: Interactive EDA.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es

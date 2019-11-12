@@ -38,3 +38,19 @@ devtools::document()
 # setup git
 usethis::use_git()
 usethis::use_github(private = TRUE)
+
+# Edit DESCRIPTION --------------------------------------------------------
+desc::desc_set(Title = "Oliver Wyman Exploratory Data Analysis Package",
+               Description = "Interactive EDA.")
+
+# add authors
+desc::desc_add_author(given = "Scott",
+                      family = "Sobel",
+                      role = "ctb",
+                      email = "scott.sobel@oliverwyman.com")
+
+desc::desc_add_author(given = "Oliver Wyman Actuarial Consulting, Inc.",
+                      role = "fnd")
+
+# version
+usethis::use_version("0.0.1")
