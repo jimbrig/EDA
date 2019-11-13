@@ -14,15 +14,25 @@ Authors@R:
              role = "fnd"))
 Description: Interactive EDA.
 License: MIT + file LICENSE
+URL: https://github.com/jimbrig2011/owEDA
+BugReports: https://github.com/jimbrig2011/owEDA/issues
+Imports: 
+    tibble,
+    magrittr,
+    lifecycle,
+    attempt,
+    DT,
+    glue,
+    golem,
+    htmltools,
+    shiny,
+    processx
+Suggests: 
+    testthat
+RdMacros: 
+    lifecycle
 Encoding: UTF-8
 Language: es
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Imports: 
-    tibble,
-    magrittr
-Suggests: 
-    testthat
-URL: https://github.com/jimbrig2011/owEDA
-BugReports: https://github.com/jimbrig2011/owEDA/issues

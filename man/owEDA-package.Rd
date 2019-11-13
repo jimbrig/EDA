@@ -4,12 +4,26 @@
 \name{owEDA-package}
 \alias{owEDA}
 \alias{owEDA-package}
-\title{owEDA: What the Package Does (One Line, Title Case)}
+\title{owEDA: Oliver Wyman Exploratory Data Analysis Package}
 \description{
-What the package does (one paragraph).
+Interactive EDA.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/jimbrig2011/owEDA}
+  \item Report bugs at \url{https://github.com/jimbrig2011/owEDA/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Jimmy Briggs \email{jimmy.briggs@oliverwyman.com}
+
+Other contributors:
+\itemize{
+  \item Scott Sobel \email{scott.sobel@oliverwyman.com} [contributor]
+  \item Oliver Wyman Actuarial Consulting, Inc. [funder]
+}
 
 }
 \keyword{internal}
