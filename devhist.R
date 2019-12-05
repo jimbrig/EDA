@@ -158,3 +158,8 @@ usethis::use_package("rhandsontable")
 
 
 ghactions::use_ghactions(workflow = ghactions::website())
+ghactions::ghactions_events
+ghactions::use_ghactions_badge()
+
+pkgdown::build_site()
+pkgdown::preview_site()
