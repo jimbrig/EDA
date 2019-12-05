@@ -4,9 +4,12 @@
 \alias{insertLogo}
 \title{Insert Logo}
 \usage{
-insertLogo(file,
+insertLogo(
+  file,
   style = "background-color: #FFF; width: 100\%; height: 100\%;",
-  width = NULL, ref = "#")
+  width = NULL,
+  ref = "#"
+)
 }
 \arguments{
 \item{file}{file}

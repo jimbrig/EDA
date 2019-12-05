@@ -23,6 +23,11 @@ usethis::create_package("owEDA")
 # ignore this script from build
 usethis::use_build_ignore("devhist.R")
 
+# create and ignore admin folder
+dir.create("admin")
+usethis::use_build_ignore("admin")
+usethis::use_git_ignore(c("*", "!.gitignore"), "admin")
+
 # setup namespace and roxygen
 usethis::use_namespace()
 usethis::use_roxygen_md()
@@ -110,13 +115,19 @@ usethis::use_r("utils")
 usethis::use_r("run_app")
 usethis::use_r("app_ui")
 usethis::use_r("app_server")
-usethis::use_r("ui_elements")
+# usethis::use_r("ui_elements")
 usethis::use_r("ui_helpers")
+usethis::use_r("ui_header")
+usethis::use_r("ui_sidebar")
+usethis::use_r("ui_body")
+usethis::use_r("ui_rightbar")
 usethis::use_r("contact_dropdown")
 usethis::use_r("header_buttons_module")
 usethis::use_r("upload_data_module")
+usethis::use_r("tables")
 
 attachment::att_to_description(
+
   extra.suggests = c("golem",
                      "testthat",
                      "pkgload",
@@ -143,3 +154,7 @@ usethis::use_package("processx")
 usethis::use_package("golem", type = "Suggests")
 usethis::use_package("shinyEffects", type = "Suggests")
 usethis::use_package("rhandsontable")
+# usethis::use_package("darkmode")
+
+
+ghactions::use_ghactions(workflow = ghactions::website())

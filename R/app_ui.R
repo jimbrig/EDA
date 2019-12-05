@@ -46,7 +46,7 @@ add_external_resources <- function(){
     shinyWidgets::useSweetAlert(),
     shinyWidgets::useShinydashboardPlus(),
     # shinyCleave::includeCleave(country = "us"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "www/styles.css"),
-    tags$script(src = "www/custom.js")
+    shiny::tags$link(rel = "stylesheet", type = "text/css", href = "www/styles.css"),
+    shiny::tags$script(src = "www/custom.js")
   )
 }

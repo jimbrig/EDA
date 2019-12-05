@@ -78,8 +78,24 @@ upload_data_ui <- function(id) {
           shiny::fluidRow(
             shiny::column(
               12,
-              DT::DTOutput(
-                ns("files_table")
+              div(
+                style = "display:inline-block",
+                div(
+                  style = "float:right",
+                  shinyFiles::shinyFilesButton(
+                    id = ns("upload_file_2"),
+                    label = "Upload by File",
+                    title = "Select File(s) for Upload:",
+                    multiple = TRUE,
+                    buttonType = "primary",
+                    icon = shiny::icon(
+                      "file"
+                    )
+                  )
+                ),
+                DT::DTOutput(
+                  ns("files_table")
+                )
               )
             )
           )
@@ -87,6 +103,7 @@ upload_data_ui <- function(id) {
       )
     )
   )
+
 }
 
 #' Upload Data Module - Server
@@ -135,9 +152,10 @@ upload_data <- function(input, output, session) {
     shinyFiles::parseFilePaths(volumes, input$upload_file)
   })
 
-  # shiny::observe({
-  #   print(selected_files())
-  # })
+  shiny::observe({
+    msg <- base::sprintf("File %s was uploaded", selected_files()$name)
+    cat(msg, "\n")
+  })
 
   # parse selected folder
   selected_folder_files <- shiny::reactive({
@@ -147,7 +165,9 @@ upload_data <- function(input, output, session) {
   })
 
   shiny::observe({
-    print(selected_folder_files())
+    msg <- base::sprintf("Folder %s was uploaded", selected_folder_files())
+    cat(msg, "\n")
+    # print(selected_folder_files())
   })
 
   # parse save file
@@ -157,9 +177,12 @@ upload_data <- function(input, output, session) {
   })
 
   # merge folder files with selected files
-  all_selected_files <- shiny::reactive({
-    # req(selected_files(), selected_folder_files())
+  all_selected_files_rv <- shiny::reactiveValues(
+    files = NULL,
+    data = NULL
+  )
 
+  observe({
     if (nrow(selected_files()) > 0 && length(selected_folder_files()) > 0) {
       hold <- selected_files() %>%
         dplyr::pull(datapath)
@@ -170,20 +193,29 @@ upload_data <- function(input, output, session) {
     } else {
       out <- selected_folder_files()
     }
-    out
+
+    all_selected_files_rv$files <- out
+
   })
 
   shiny::observe({
-    print(all_selected_files())
+    print(all_selected_files_rv$files)
   })
 
   # load data into a list
   data_list <- shiny::reactive({
-    shiny::req(all_selected_files())
-    purrr::map(all_selected_files(),
+    shiny::req(all_selected_files_rv$files)
+    purrr::map(all_selected_files_rv$files,
                rio::import,
                setclass = "tibble")
   })
+
+  observeEvent(data_list(), {
+
+    all_selected_files_rv$data <- data_list()
+
+  })
+
 
   # extract dimensions of data's (i.e. rows, cols, # vars)
   data_dims <- shiny::reactive({
@@ -195,8 +227,8 @@ upload_data <- function(input, output, session) {
 
   # create a reactive data frame for all selected files' meta-data
   selected_files_metadata <- shiny::reactive({
-    shiny::req(all_selected_files(), data_list(), data_dims())
-    purrr::map_dfr(all_selected_files(), fs::file_info, .id = "index") %>%
+    shiny::req(all_selected_files_rv$files, data_list(), data_dims())
+    purrr::map_dfr(all_selected_files_rv$files, fs::file_info, .id = "index") %>%
       dplyr::transmute(
         index = index,
         upload_date_time = Sys.time(),

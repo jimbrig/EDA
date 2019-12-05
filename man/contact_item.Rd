@@ -4,8 +4,12 @@
 \alias{contact_item}
 \title{Contact Item}
 \usage{
-contact_item(name = "First Name, Last Name", role = "Role",
-  phone = "###-###-####", email = "first.last@oliverwyman.com")
+contact_item(
+  name = "First Name, Last Name",
+  role = "Role",
+  phone = "###-###-####",
+  email = "first.last@oliverwyman.com"
+)
 }
 \arguments{
 \item{name}{Name}

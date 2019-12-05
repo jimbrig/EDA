@@ -1,28 +1,3 @@
-#' Header UI
-#'
-#' \lifecycle{experimental}
-#'
-#' @return HTML for app header
-#' @export
-#' @importFrom shinydashboardPlus dashboardHeaderPlus
-header_ui <- function() {
-
-  # contacts
-  contacts <- c(
-    contact_item("Jimmy Briggs", "Developer", "404-239-6402", "jimmy.briggs@oliverwyman.com"),
-    contact_item("Scott Sobel", "Project Manager", "614-227-6225", "scott.sobel@oliverwyman.com")
-  )
-
-  shinydashboardPlus::dashboardHeaderPlus(
-    title = "OW EDA",
-    enable_rightsidebar = TRUE,
-    rightSidebarIcon = "dashboard",
-    # left_menu = header_left_menu_ui(),
-    # fixed = TRUE,
-    .list = header_buttons_ui("header", contacts = contacts)
-  )
-}
-
 #' Sidebar UI
 #'
 #' @return HTML for app sidebar
@@ -108,66 +83,16 @@ sidebar_ui <- function() {
         )
       )
     ),
-    insertLogo(
-      file = "www/ow-logo.png",
-      style = 'padding: 10px; position:fixed; bottom:10px;',
-      width = 200,
-      ref = "http://www.oliverwyman.com/index.html"
-    )
-  )
-
-}
-
-
-#' Body UI
-#'
-#' @return HTML for app body
-#' @export
-#' @importFrom shiny fluidRow column
-#' @importFrom shinydashboard dashboardBody tabItems tabItem box
-#' @importFrom shinyWidgets radioGroupButtons
-body_ui <- function() {
-
-  shinydashboard::dashboardBody(
-
-    shinydashboard::tabItems(
-
-      shinydashboard::tabItem(
-        tabName = "upload_data",
-        upload_data_ui("data"),
-        # upload_files_ui("data")
-        # shinyWidgets::radioGroupButtons(
-        #   "file_type",
-        #   "Select File Type:",
-        #   choices = c(
-        #     `<div><i class="fa fa-file-excel"></i> Excel</div>` = "xl",
-        #     `<div><i class="fa fa-file-text"></i> CSV</div>` = "csv",
-        #     `<div><i class='fa fa-file-text'></i> Text</div>` = "txt",
-        #     `<div><i class='fa fa-file-pdf-o'></i> PDF</div>` = "pdf",
-        #     `<div><i class='fa fa-cubes'></i> R Data File</div>` = "rdata",
-        #     `<div><i class='fa fa-clipboard'></i> Copy/Paste</div>` = "copy"
-        #   ),
-        #   selected = "xl",
-        #   status = "primary",
-        #   size = "normal",
-        #   direction = "horizontal",
-        #   individual = TRUE,
-        #   justified = TRUE
-        # )
+    shiny::tags$div(
+      style = 'padding: 10px; position:fixed; bottom:0px;',
+      shiny::tags$a(
+        shiny::tags$img(
+          src = "ow-logo.png",
+          width = 200
+        ),
+        href = "http://www.oliverwyman.com/index.html"
       )
     )
-  )
-}
-
-#' Right Sidebar UI
-#'
-#' @return HTML for app's right-sidebar
-#' @export
-#' @importFrom shinydashboardPlus rightSidebar
-right_sidebar_ui <- function() {
-
-  shinydashboardPlus::rightSidebar(
-    background = "dark"
   )
 
 }

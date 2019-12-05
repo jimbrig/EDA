@@ -1,3 +1,5 @@
 ^owEDA\.Rproj$
 ^\.Rproj\.user$
 ^devhist\.R$
+^admin$
+^\.github/workflows$

@@ -17,22 +17,35 @@ License: MIT + file LICENSE
 URL: https://github.com/jimbrig2011/owEDA
 BugReports: https://github.com/jimbrig2011/owEDA/issues
 Imports: 
-    tibble,
-    magrittr,
-    lifecycle,
-    attempt,
+    base,
+    desc,
+    dplyr,
     DT,
-    glue,
-    golem,
+    fs,
     htmltools,
+    htmlwidgets,
+    lifecycle,
+    magrittr,
+    purrr,
+    rio,
     shiny,
-    processx
+    shinydashboard,
+    shinydashboardPlus,
+    shinyFiles,
+    shinyjs,
+    shinyWidgets,
+    tibble
 Suggests: 
-    testthat
+    attachment,
+    golem,
+    pkgload,
+    processx,
+    testthat,
+    usethis
 RdMacros: 
     lifecycle
 Encoding: UTF-8
 Language: es
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.1
