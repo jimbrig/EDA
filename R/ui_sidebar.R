@@ -9,6 +9,7 @@ sidebar_ui <- function() {
 
   shinydashboard::dashboardSidebar(
     shiny::tags$div(
+      shiny::hr(),
       shiny::h5(
         "Exploatory Data Analysis",
         shiny::br(),
