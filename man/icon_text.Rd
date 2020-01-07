@@ -19,4 +19,5 @@ Creates an HTML div containing the icon and text.
 }
 \examples{
 icon_text("table", "Table")
+
 }
