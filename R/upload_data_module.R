@@ -9,11 +9,11 @@
 #' \dontrun{
 #' upload_data_ui("data")
 #' }
-
 #' @importFrom DT DTOutput
-#' @importFrom shiny NS tagList fluidRow column icon
+#' @importFrom shiny NS fluidRow column icon uiOutput
 #' @importFrom shinydashboard box
 #' @importFrom shinyFiles shinyFilesButton shinyDirButton shinySaveButton
+#' @importFrom shinyjs disabled
 upload_data_ui <- function(id) {
 
   ns <- shiny::NS(id)
@@ -63,43 +63,67 @@ upload_data_ui <- function(id) {
         )
       ),
 
-      shinydashboard::box(
-        title = "Data Files Table:",
-        width = 12,
-        status = "primary",
-        solidHeader = TRUE,
-        collapsible = TRUE,
-        shiny::fluidRow(
-          shiny::column(
-            12,
-            DT::DTOutput(
-              ns("files_table")
-            )
-          )
+      shiny::fluidRow(
+        shiny::column(
+          12,
+          shiny::uiOutput(ns("data_picker"))
         )
       ),
 
-      shinydashboard::box(
-        title = "Preview Uploaded Datasets:",
+      shinydashboard::tabBox(
+        id = ns("data_preview"),
+        title = icon_text("search", "Preview:"),
         width = 12,
-        status = "primary",
-        solidHeader = TRUE,
-        collapsible = TRUE,
-        shiny::fluidRow(
-          shiny::column(
-            12,
-            uiOutput(ns("data_picker")),
-            DT::DTOutput(
-              ns("data_table"),
-              width = "100%"
+
+        shiny::tabPanel(
+          title = icon_text("file", "Data Files Table"),
+          width = 12,
+          shiny::fluidRow(
+            shiny::column(
+              12,
+              DT::DTOutput(
+                ns("files_table")
+              )
             )
+          )
+        ),
+
+        shiny::tabPanel(
+          title = icon_text("table", "Data Table"),
+          shiny::fluidRow(
+            shiny::column(
+              12,
+              # shiny::uiOutput(ns("data_picker")),
+              DT::DTOutput(
+                ns("data_table"),
+                width = "100%"
+              )
+            )
+          )
+        ),
+
+        shiny::tabPanel(
+          title = icon_text("book", "Summary"),
+          shiny::fluidRow(
+            shiny::column(
+              12,
+              shiny::uiOutput(ns("data_summary"))
+            )
+          )
+        ),
+
+        shiny::tabPanel(
+          title = icon_text("list", "Variables"),
+          shiny::fluidRow(
+            shiny::column(
+              12
+            )
+
           )
         )
       )
     )
   )
-
-
 
 }
 
@@ -116,15 +140,15 @@ upload_data_ui <- function(id) {
 #' \dontrun{
 #' shiny::callModule(upload_data, "data")
 #' }
-#' @importFrom dplyr transmute row_number
-#' @importFrom DT renderDT datatable dataTableProxy coerceValue replaceData
-#' @importFrom fs path_package path_home path path_ext
-#' @importFrom htmlwidgets JS
-#' @importFrom purrr map map_dbl set_names
+#' @importFrom dplyr pull transmute row_number
+#' @importFrom DT renderDT datatable
+#' @importFrom fs path_package path_home path path_ext_remove path_ext
+#' @importFrom purrr map set_names map_dbl
 #' @importFrom rio import
-#' @importFrom shiny reactive req validate need reactiveValues observe
-#' @importFrom shinyFiles getVolumes shinyFileChoose shinyDirChoose shinyFileSave parseFilePaths parseDirPath parseSavePath
-#' @importFrom tibble tibble
+#' @importFrom shiny reactive req observe renderUI
+#' @importFrom shinyFiles getVolumes shinyFileChoose parseFilePaths
+#' @importFrom shinyWidgets pickerInput pickerOptions
+#' @importFrom summarytools dfSummary
 upload_data <- function(input, output, session) {
 
   # namespace
@@ -155,7 +179,7 @@ upload_data <- function(input, output, session) {
   })
 
   # load data
-  selected_files_data <- reactive({
+  selected_files_data <- shiny::reactive({
     shiny::req(selected_files())
 
     paths <- selected_files() %>% dplyr::pull(datapath)
@@ -169,8 +193,8 @@ upload_data <- function(input, output, session) {
   })
 
   # extract dims
-  selected_files_data_dims <- reactive({
-    req(selected_files_data())
+  selected_files_data_dims <- shiny::reactive({
+    shiny::req(selected_files_data())
 
     data_list <- selected_files_data()
 
@@ -182,7 +206,7 @@ upload_data <- function(input, output, session) {
   })
 
   # pull details on files
-  selected_files_info <- reactive({
+  selected_files_info <- shiny::reactive({
 
     shiny::req(selected_files(), selected_files_data_dims())
 
@@ -202,7 +226,7 @@ upload_data <- function(input, output, session) {
   })
 
   shiny::observe({
-    req(selected_files_info())
+    shiny::req(selected_files_info())
     print(selected_files_info())
   })
 
@@ -258,10 +282,10 @@ upload_data <- function(input, output, session) {
 
   })
 
-  observe(str(input$files_table_cell_edit))
+  shiny::observe(str(input$files_table_cell_edit))
 
-  output$data_picker <- renderUI({
-    req(selected_files_data())
+  output$data_picker <- shiny::renderUI({
+    shiny::req(selected_files_data())
 
     shinyWidgets::pickerInput(
       session$ns("data_picker"),
@@ -279,7 +303,7 @@ upload_data <- function(input, output, session) {
 
   output$data_table <- DT::renderDT({
 
-    req(selected_files_data(), input$data_picker)
+    shiny::req(selected_files_data(), input$data_picker)
 
     hold <- selected_files_data()[[match(input$data_picker, names(selected_files_data()))]]
 
@@ -325,6 +349,24 @@ upload_data <- function(input, output, session) {
       # editable = list(
       #   target = 'row', disable = list(columns = c(0:7))
       # )
+    )
+  })
+
+  output$data_summary <- shiny::renderUI({
+    req(selected_files_data(), input$data_picker)
+
+    hold <- selected_files_data()[[match(input$data_picker, names(selected_files_data()))]]
+
+    print(
+      summarytools::dfSummary(
+        hold, graph.magnif = 0.8
+      ),
+      method = 'render',
+      headings = FALSE,
+      justify = "c",
+      trim.strings = TRUE,
+      bootstrap.css = FALSE #,
+      # width = 240
     )
   })
 

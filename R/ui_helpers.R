@@ -8,7 +8,7 @@
 #' @return tag
 #' @export
 #' @importFrom shiny tags img
-insertLogo <- function(file,
+insert_logo <- function(file,
                        style = "background-color: #FFF; width: 100%; height: 100%;",
                        width = NULL,
                        ref = "#"){
@@ -41,4 +41,27 @@ insertLogo <- function(file,
 #' @importFrom shiny HTML
 rep_br <- function(times = 1) {
   shiny::HTML(rep("<br/>", times = times))
+}
+
+#' Icon Text
+#'
+#' Creates an HTML div containing the icon and text.
+#'
+#' @param icon fontawesome icon
+#' @param text text
+#'
+#' @return HTML div
+#' @export
+#'
+#' @examples
+#' icon_text("table", "Table")
+#'
+#' @importFrom shiny tagList
+icon_text <- function(icon, text) {
+
+  i <- shiny::icon(icon)
+  t <- paste0(" ", text)
+
+  shiny::tagList(div(i, t))
+
 }
