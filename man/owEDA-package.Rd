@@ -6,6 +6,8 @@
 \alias{owEDA-package}
 \title{owEDA: Oliver Wyman Exploratory Data Analysis Package}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Interactive EDA.
 }
 \seealso{

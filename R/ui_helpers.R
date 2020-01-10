@@ -76,7 +76,7 @@ icon_text <- function(icon, text) {
 #' @export
 #'
 #' @examples
-#' owEDA::flucol(12, 0, shiny::h5("HEY))
+#' owEDA::flucol(12, 0, shiny::h5("HEY"))
 flucol <- function(..., width = 12, offset = 0) {
 
   if (!is.numeric(width) || (width < 1) || (width > 12))

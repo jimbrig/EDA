@@ -73,12 +73,14 @@ upload_data_ui <- function(id) {
       title = icon_text("table", "Data Table"),
       flucol(
         shiny::div(
-          style = "inline; float:left",
+          # style = "inline; float:left",
           shiny::uiOutput(ns("data_picker"))
         ),
-        DT::DTOutput(
-          ns("data_table"),
-          width = "100%"
+        flucol(
+          DT::DTOutput(
+            ns("data_table"),
+            width = "100%"
+          )
         )
       )
     ),
@@ -285,8 +287,7 @@ upload_data <- function(input, output, session) {
     DT::datatable(
       hold,
       options = list(
-        keys = TRUE,
-        dom = "Bt",
+        dom = 'lBftpr',
         buttons = list(
           'copy', 'print',
           list(
@@ -294,36 +295,13 @@ upload_data <- function(input, output, session) {
             buttons = c('csv', 'excel', 'pdf'),
             text = 'Download'
           )
-        ) #,
-        # paging = FALSE,
-        # searching = FALSE,
-        # columnDefs = list(
-        #   list(
-        #     className = "dt-center",
-        #     targets = c(0:9)
-        #   )
-        # )
+        )
       ),
       class = "stripe cell-border",
-      rownames = FALSE,
-      # colnames = c(
-      #   "Index",
-      #   "File",
-      #   "Path",
-      #   "Type",
-      #   "# Rows",
-      #   "# Columns",
-      #   "Last Modified",
-      #   "Size",
-      #   "Custom Name",
-      #   "Custom Description"
-      # ),
-      # caption = paste0("Sumary of Uploaded Data Files:"),
+      rownames = tibble::has_rownames(hold),
+      caption = paste0("Preview of Uploaded Dataset:"),
       style = "bootstrap",
-      extensions = "Buttons" #, "KeyTable"),
-      # editable = list(
-      #   target = 'row', disable = list(columns = c(0:7))
-      # )
+      extensions = "Buttons"
     )
   })
 
