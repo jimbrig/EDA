@@ -70,7 +70,7 @@ devtools::install()
 
 # Documentation -----------------------------------------------------------
 usethis::use_readme_rmd()
-usethis::use_logo("../../../../Pictures/OWAC/ow.jpg")
+usethis::use_logo("../../../../../Pictures/OWAC/ow_logo_new.png")
 usethis::use_lifecycle_badge("Experimental")
 usethis::use_badge(
   "Project Status: WIP",
