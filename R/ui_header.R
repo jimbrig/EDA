@@ -14,7 +14,10 @@ header_ui <- function() {
   )
 
   shinydashboardPlus::dashboardHeaderPlus(
-    title = "OW EDA",
+    title = shiny::tags$img(
+      src = "www/ow_logo_new.png",
+      width = 200
+    ),
     enable_rightsidebar = TRUE,
     rightSidebarIcon = "dashboard",
     # left_menu = header_left_menu_ui(),

@@ -11,7 +11,11 @@ sidebar_ui <- function() {
     shiny::tags$div(
       shiny::hr(),
       shiny::h5(
+        "Oliver Wyman",
+        shiny::br(),
         "Exploatory Data Analysis",
+        shiny::br(),
+        "Shiny Application",
         shiny::br(),
         paste0(
           "App Version: ",
@@ -83,17 +87,17 @@ sidebar_ui <- function() {
           icon = shiny::icon("sliders")
         )
       )
-    ),
-    shiny::tags$div(
-      style = 'padding: 10px; position:fixed; bottom:0px;',
-      shiny::tags$a(
-        shiny::tags$img(
-          src = "ow-logo.png",
-          width = 200
-        ),
-        href = "http://www.oliverwyman.com/index.html"
-      )
-    )
+    ) #,
+    # shiny::tags$div(
+    #   style = 'padding: 10px; position:fixed; bottom:0px;',
+    #   shiny::tags$a(
+    #     shiny::tags$img(
+    #       src = "www/MMC-Wide.png",
+    #       width = 200
+    #     ),
+    #     href = "http://www.oliverwyman.com/index.html"
+    #   )
+    # )
   )
 
 }

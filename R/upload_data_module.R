@@ -18,25 +18,26 @@ upload_data_ui <- function(id) {
 
   ns <- shiny::NS(id)
 
-  shiny::fluidRow(
-    shiny::column(
-      12,
-      shinydashboard::box(
-        title = "Upload Data File(s)",
-        # footer = "Currently Supported File Types / Extensions: CSV, XLSX, XLS, TXT, PDF, Rdata, RDS",
-        width = 12,
-        status = "primary",
-        solidHeader = TRUE,
-        collapsible = TRUE,
-        shiny::fluidRow(
-          shiny::column(
-            12,
+  shinydashboard::tabBox(
+    id = ns("data_upload"),
+    title = icon_text("cloud-upload", "Upload and Explore Data"), #"search", "Preview:"),
+    width = 12,
+
+    shiny::tabPanel(
+      title = icon_text("file", "Data Files Summary"),
+      width = 12,
+      shiny::fluidRow(
+        shiny::column(
+          12,
+          shiny::div(
+            style = "inline; float:left",
+            # shinyWidgets::panel(
             shinyFiles::shinyFilesButton(
               id = ns("upload_file"),
               label = "Upload by File",
               title = "Select File(s) for Upload:",
               multiple = TRUE,
-              buttonType = "primary",
+              # buttonType = "primary",
               icon = shiny::icon(
                 "file"
               )
@@ -45,7 +46,7 @@ upload_data_ui <- function(id) {
               id = ns("upload_folder"),
               label = "Upload by Folder",
               title = "Select a Folder for Upload:",
-              buttonType = "primary",
+              # buttonType = "primary",
               icon = shiny::icon(
                 "folder-open"
               )
@@ -54,73 +55,57 @@ upload_data_ui <- function(id) {
               id = ns("save_file"),
               label = "Save to File",
               title = "Select a File to Save To:",
-              buttonType = "primary",
+              # buttonType = "primary",
               icon = shiny::icon(
                 "save"
               )
             ) %>% shinyjs::disabled()
-          )
+          ),
+          # shiny::br(),
+          DT::DTOutput(
+            ns("files_table")
+          ),
+          # shiny::br(),
+          # shiny::h3("Here will be additional settings for uploading files."),
+          # shiny::h5("For Example: Merging Files Together, Selecting Excel Tabs, etc.")
         )
-      ),
+      )
+    ),
 
+    shiny::tabPanel(
+      title = icon_text("table", "Data Table"),
       shiny::fluidRow(
         shiny::column(
           12,
+          shiny::div(
+            style = "inline; float:left",
           shiny::uiOutput(ns("data_picker"))
-        )
-      ),
-
-      shinydashboard::tabBox(
-        id = ns("data_preview"),
-        title = icon_text("search", "Preview:"),
-        width = 12,
-
-        shiny::tabPanel(
-          title = icon_text("file", "Data Files Table"),
-          width = 12,
-          shiny::fluidRow(
-            shiny::column(
-              12,
-              DT::DTOutput(
-                ns("files_table")
-              )
-            )
-          )
-        ),
-
-        shiny::tabPanel(
-          title = icon_text("table", "Data Table"),
-          shiny::fluidRow(
-            shiny::column(
-              12,
-              # shiny::uiOutput(ns("data_picker")),
-              DT::DTOutput(
-                ns("data_table"),
-                width = "100%"
-              )
-            )
-          )
-        ),
-
-        shiny::tabPanel(
-          title = icon_text("book", "Summary"),
-          shiny::fluidRow(
-            shiny::column(
-              12,
-              shiny::uiOutput(ns("data_summary"))
-            )
-          )
-        ),
-
-        shiny::tabPanel(
-          title = icon_text("list", "Variables"),
-          shiny::fluidRow(
-            shiny::column(
-              12
-            )
-
+          ),
+          DT::DTOutput(
+            ns("data_table"),
+            width = "100%"
           )
         )
+      )
+    ),
+
+    shiny::tabPanel(
+      title = icon_text("book", "Summary"),
+      shiny::fluidRow(
+        shiny::column(
+          12,
+          shiny::uiOutput(ns("data_summary"))
+        )
+      )
+    ),
+
+    shiny::tabPanel(
+      title = icon_text("list", "Variables"),
+      shiny::fluidRow(
+        shiny::column(
+          12
+        )
+
       )
     )
   )
@@ -292,10 +277,10 @@ upload_data <- function(input, output, session) {
       label = "Select Data to Display Below:",
       choices = names(selected_files_data()),
       selected = names(selected_files_data())[1],
-      width = "auto",
-      options = shinyWidgets::pickerOptions(
-        style = "primary"
-      ),
+      width = "300px",
+      # options = shinyWidgets::pickerOptions(
+      #   style = "primary"
+      # ),
       multiple = FALSE
     )
 
