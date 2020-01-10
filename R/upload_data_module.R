@@ -94,6 +94,8 @@ upload_data_ui <- function(id) {
       title = icon_text("list", "Variables"),
       flucol(
 
+        "Work In Progress"
+
       )
     )
   )
