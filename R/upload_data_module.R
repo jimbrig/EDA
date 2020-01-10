@@ -26,85 +26,73 @@ upload_data_ui <- function(id) {
     shiny::tabPanel(
       title = icon_text("file", "Data Files Summary"),
       width = 12,
-      shiny::fluidRow(
-        shiny::column(
-          12,
-          shiny::div(
-            style = "inline; float:left",
-            # shinyWidgets::panel(
-            shinyFiles::shinyFilesButton(
-              id = ns("upload_file"),
-              label = "Upload by File",
-              title = "Select File(s) for Upload:",
-              multiple = TRUE,
-              # buttonType = "primary",
-              icon = shiny::icon(
-                "file"
-              )
-            ),
-            shinyFiles::shinyDirButton(
-              id = ns("upload_folder"),
-              label = "Upload by Folder",
-              title = "Select a Folder for Upload:",
-              # buttonType = "primary",
-              icon = shiny::icon(
-                "folder-open"
-              )
-            ) %>% shinyjs::disabled(),
-            shinyFiles::shinySaveButton(
-              id = ns("save_file"),
-              label = "Save to File",
-              title = "Select a File to Save To:",
-              # buttonType = "primary",
-              icon = shiny::icon(
-                "save"
-              )
-            ) %>% shinyjs::disabled()
+      flucol(
+        shiny::div(
+          style = "inline; float:left",
+          # shinyWidgets::panel(
+          shinyFiles::shinyFilesButton(
+            id = ns("upload_file"),
+            label = "Upload by File",
+            title = "Select File(s) for Upload:",
+            multiple = TRUE,
+            # buttonType = "primary",
+            icon = shiny::icon(
+              "file"
+            )
           ),
-          # shiny::br(),
-          DT::DTOutput(
-            ns("files_table")
-          ),
-          # shiny::br(),
-          # shiny::h3("Here will be additional settings for uploading files."),
-          # shiny::h5("For Example: Merging Files Together, Selecting Excel Tabs, etc.")
-        )
+          shinyFiles::shinyDirButton(
+            id = ns("upload_folder"),
+            label = "Upload by Folder",
+            title = "Select a Folder for Upload:",
+            # buttonType = "primary",
+            icon = shiny::icon(
+              "folder-open"
+            )
+          ) %>% shinyjs::disabled(),
+          shinyFiles::shinySaveButton(
+            id = ns("save_file"),
+            label = "Save to File",
+            title = "Select a File to Save To:",
+            # buttonType = "primary",
+            icon = shiny::icon(
+              "save"
+            )
+          ) %>% shinyjs::disabled()
+        ),
+        # shiny::br(),
+        DT::DTOutput(
+          ns("files_table")
+        ),
+        # shiny::br(),
+        # shiny::h3("Here will be additional settings for uploading files."),
+        # shiny::h5("For Example: Merging Files Together, Selecting Excel Tabs, etc.")
       )
     ),
 
     shiny::tabPanel(
       title = icon_text("table", "Data Table"),
-      shiny::fluidRow(
-        shiny::column(
-          12,
-          shiny::div(
-            style = "inline; float:left",
+      flucol(
+        shiny::div(
+          style = "inline; float:left",
           shiny::uiOutput(ns("data_picker"))
-          ),
-          DT::DTOutput(
-            ns("data_table"),
-            width = "100%"
-          )
+        ),
+        DT::DTOutput(
+          ns("data_table"),
+          width = "100%"
         )
       )
     ),
 
     shiny::tabPanel(
       title = icon_text("book", "Summary"),
-      shiny::fluidRow(
-        shiny::column(
-          12,
-          shiny::uiOutput(ns("data_summary"))
-        )
+      flucol(
+        shiny::uiOutput(ns("data_summary"))
       )
     ),
 
     shiny::tabPanel(
       title = icon_text("list", "Variables"),
-      shiny::fluidRow(
-        shiny::column(
-          12
-        )
+      flucol(
 
       )
     )

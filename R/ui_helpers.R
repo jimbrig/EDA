@@ -65,3 +65,28 @@ icon_text <- function(icon, text) {
   shiny::tagList(div(i, t))
 
 }
+
+#' Fluid Column - Shiny fluidRow + Column
+#'
+#' @param ... elements to include within the flucol
+#' @param width width
+#' @param offset offset
+#'
+#' @return A column wrapped in fluidRow
+#' @export
+#'
+#' @examples
+#' owEDA::flucol(12, 0, shiny::h5("HEY))
+flucol <- function(..., width = 12, offset = 0) {
+
+  if (!is.numeric(width) || (width < 1) || (width > 12))
+    stop("column width must be between 1 and 12")
+
+  shiny::fluidRow(
+    shiny::column(
+      width = width,
+      offset = offset,
+      ...
+    )
+  )
+}
