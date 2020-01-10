@@ -23,9 +23,21 @@ The goal of **owEDA** is to:
 
 ## Installation
 
+> Since **owEDA** is a private repository make sure you have a GitHub
+> PAT (personal access token) setup and have permission before
+> attempting to install the package.
+
 You can install from [GitHub](https://github.com/) with:
 
 ``` r
 remotes::install_github("jimbrig2011/owEDA")
 devtools::install_github("jimbrig2011/owEDA")
+```
+
+## Run Application
+
+After installing the package, you can run the app simply with:
+
+``` r
+owEDA::run_app()
 ```
