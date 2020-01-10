@@ -13,7 +13,7 @@ sidebar_ui <- function() {
       shiny::h5(
         "Oliver Wyman",
         shiny::br(),
-        "Exploatory Data Analysis",
+        "Exploratory Data Analysis",
         shiny::br(),
         "Shiny Application",
         shiny::br(),
