@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Oliver Wyman Exploratory Data Analysis (owEDA) <img src='man/figures/logo.png' align="right" height="13.5" />
+# Exploratory Data Analysis
 
 <!-- badges: start -->
 
@@ -13,7 +13,7 @@ WIP](https://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.or
 
 ## General Overview
 
-The goal of **owEDA** is to:
+The goal of **EDA** is to:
 
   - Save Time
   - Improve Efficiency
@@ -23,7 +23,7 @@ The goal of **owEDA** is to:
 
 ## Installation
 
-> Since **owEDA** is a private repository make sure you have a GitHub
+> Since **EDA** is a private repository make sure you have a GitHub
 > PAT (personal access token) setup and have permission before
 > attempting to install the package. See [Usethis Setup
 > Guide](https://usethis.r-lib.org/articles/articles/usethis-setup.html#get-and-store-a-github-personal-access-token)
@@ -32,12 +32,12 @@ The goal of **owEDA** is to:
 You can install from [GitHub](https://github.com/) with:
 
 ``` r
-remotes::install_github("jimbrig2011/owEDA")
+remotes::install_github("jimbrig2011/EDA")
 
 # or
 
 require(devtools)
-devtools::install_github("jimbrig2011/owEDA")
+devtools::install_github("jimbrig2011/EDA")
 ```
 
 ## Run Application
@@ -45,12 +45,12 @@ devtools::install_github("jimbrig2011/owEDA")
 After installing the package, you can run the app simply with:
 
 ``` r
-owEDA::run_app()
+EDA::run_app()
 ```
 
 ## Roadmap
 
-**owEDA** desires to provide the following features:
+**EDA** desires to provide the following features:
 
   - Data Upload Management:
     
