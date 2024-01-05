@@ -1,7 +1,8 @@
 repo_name: jimbrig/EDA
 report_id: 805e5d90211cec55042eee8775214f89
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-07T20:28:42+00:00'
+timestamp: '2024-01-05T08:27:54+00:00'
 requested_by: web-flow
 provider: github
 branch: master
@@ -15,6 +16,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/jimbrig/EDA
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -25,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:47:03.000000000 Z
@@ -36,6 +39,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1213/r-logo.png
+  detection_source_url: https://github.com/jimbrig/EDA
   detection_source: Repo Metadata
 - name: Ruby
   description: A dynamic, interpreted, open source programming language with a focus
@@ -46,6 +50,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/989/ruby.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:42:28.000000000 Z
@@ -57,6 +62,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/jimbrig/EDA
   detection_source: Repo Metadata
 - name: RubyGems
   description: Easily download, install, and use ruby software packages on your system
@@ -66,6 +72,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/service/12795/5jL6-BA5_400x400.jpeg
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:42:28.000000000 Z
@@ -77,6 +84,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:42:28.000000000 Z
@@ -88,6 +96,7 @@ tools:
   category: Support, Sales, and Marketing
   sub_category: CRM
   image_url: https://img.stackshare.io/service/3633/ZBMmmvP1_400x400.jpg
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:42:28.000000000 Z
@@ -97,6 +106,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/2270/no-img-open-source.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/docs/404.html
   detection_source: docs/404.html
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:34:35.000000000 Z
@@ -108,6 +118,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:42:28.000000000 Z
@@ -119,6 +130,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -130,6 +142,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -141,6 +154,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:42:28.000000000 Z
@@ -152,6 +166,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -163,6 +178,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -174,6 +190,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -185,6 +202,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -196,6 +214,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -207,6 +226,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -218,6 +238,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -229,6 +250,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -240,6 +262,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-11-12 18:42:28.000000000 Z
@@ -251,6 +274,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -262,6 +286,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -273,6 +298,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -284,6 +310,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -295,6 +322,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -306,6 +334,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -317,6 +346,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -328,6 +358,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
@@ -339,6 +370,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/package/cran/image.png
+  detection_source_url: https://github.com/jimbrig/EDA/blob/master/DESCRIPTION
   detection_source: DESCRIPTION
   last_updated_by: Jimmy Briggs
   last_updated_on: 2019-12-05 18:17:44.000000000 Z
